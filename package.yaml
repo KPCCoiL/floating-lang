@@ -1,0 +1,51 @@
+name:                floating-lang
+version:             0.1.0.0
+github:              "KPCCoiL/floating-lang"
+license:             BSD3
+author:              "CoiL"
+maintainer:          "copernicium[at]me.com"
+copyright:           "2018 CoiL"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/KPCCoiL/floating-lang#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl >= 2.2.1
+- containers >= 0.5.7.1
+- parsec
+
+library:
+  source-dirs: src
+
+executables:
+  floating-lang-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - floating-lang
+
+tests:
+  floating-lang-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - floating-lang
