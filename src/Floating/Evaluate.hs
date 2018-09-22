@@ -31,9 +31,10 @@ execRatio (ratioToDecimal -> Decimal reg code) = do
 
 -- we have to define this because Ratio is not Floating. lol
 power :: Rational -> Rational -> Rational
-power a b
-  | denominator b == 1 = a ^ numerator b
-  | otherwise = error "^ : exponent not integral"
+power a b@(denominator -> 1)
+  | b >= 0 = a ^ numerator b
+  | otherwise = (1 / a) ^ (- numerator b)
+power _ _ = error "^ : exponent not integral"
 
 evalExpr :: Integer -> ExprAST -> Rational
 evalExpr c (Literal i) = i % 1
