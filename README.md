@@ -1,6 +1,6 @@
 # floating-lang
 
-`$ node js-output/all.js source.flt
+`$ node js-output/all.js source.flt`
 
 ## Examples
 
